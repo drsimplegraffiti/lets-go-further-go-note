@@ -35,6 +35,9 @@ func (app *application) writeJSON(w http.ResponseWriter, status int, data envelo
 		return err
 	}
 	js = append(js, '\n')
+
+	// you can also use maps.Insert(w.Header(), maps.All(headers)) instead of the range
+
 	for key, value := range headers {
 		w.Header()[key] = value
 	}
