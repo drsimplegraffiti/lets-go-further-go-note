@@ -5244,3 +5244,22 @@ Version: 1.0.0
 ```bash
 go get github.com/pascaldekloe/jwt@v1
 ```
+
+##### Password reset
+
+```bash
+$ curl -X POST -d '{"email": "alice@example.com"}' localhost:4000/v1/tokens/password-reset
+ {
+    "message": "an email will be sent to you containing password reset instructions"
+ }
+```
+
+```bash
+And then you can initiate the actual password change by sending a request containing the
+ token received in the email. For example:
+ $ BODY='{"password": "your new password", "token": "Y7QCRZ7FWOWYLXLAOC2VYOLIPY"}'
+ $ curl -X PUT -d "$BODY" localhost:4000/v1/users/password
+ {
+    "message": "your password was successfully reset"
+ }
+```
