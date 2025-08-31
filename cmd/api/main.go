@@ -57,7 +57,7 @@ type config struct {
 		trustedOrigins []string
 	}
 	jwt struct {
-		secret string // Add a new field to store the JWT signing secret.
+		secret string
 	}
 }
 type application struct {
